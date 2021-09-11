@@ -10,7 +10,7 @@ try {
     if (semVer.includes('-')) {
         calculatedSemVer = semVer.concat(ShortSha);s
     }
-
+    console.log(`Calculated version to be ${calculatedSemVer}`);
     core.setOutput("semver", calculatedSemVer);
 } catch (error) {
     core.setFailed(error.message);
