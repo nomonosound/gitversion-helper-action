@@ -8,7 +8,7 @@ try {
 
     calculatedSemVer = semVer;
     if (semVer.includes('-')) {
-        calculatedSemVer = semVer.concat(ShortSha);s
+        calculatedSemVer = semVer.concat(ShortSha);
     }
     console.log(`Calculated version to be ${calculatedSemVer}`);
     core.setOutput("semver", calculatedSemVer);
