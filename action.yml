@@ -1,0 +1,13 @@
+name: 'gitversion-helper'
+description: 'adds short sha to prerelease tags'
+inputs:
+  semver:
+    required: true
+  shortsha:
+    required: true
+outputs:
+  semver:
+    description: 'calculated semver'
+runs:
+  using: 'node12'
+  main: 'index.js'
