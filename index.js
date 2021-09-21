@@ -10,18 +10,20 @@ try {
     const tagValue = null;
 
     if (githubRef.startsWith("refs/tags")) {
-        tagValue = a.replace("refs/tags/", "")
+        tagValue = githubRef.replace("refs/tags/", "")
       }
 
     calculatedSemVer = semVer;
     if (semVer.includes('-')) {
         calculatedSemVer = semVer.concat('.', ShortSha);
     }
-    console.log(`Calculated version to be ${calculatedSemVer}`);
+    
     if (useTagIfExists === true && tagValue != null) {
+        console.log(`Using semver from tag: ${tagValue}`);
         core.setOutput("semver", tagValue);
     }
     else {
+        console.log(`Calculated version to be: ${calculatedSemVer}`);
         core.setOutput("semver", calculatedSemVer);
     }
 } catch (error) {
