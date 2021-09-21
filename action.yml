@@ -5,6 +5,10 @@ inputs:
     required: true
   shortsha:
     required: true
+  useTagIfExists:
+    default: false
+  githubRef:
+    default: ""
 outputs:
   semver:
     description: 'calculated semver'
