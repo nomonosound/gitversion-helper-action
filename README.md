@@ -35,7 +35,7 @@ jobs:
 
     - name: Calculate final version
       id: gitversion
-      uses: trondhindenes/gitversion-helper-action@1.7.0
+      uses: trondhindenes/gitversion-helper-action@2.0.0
       with:
         semver: ${{ steps.gitversion_initial.outputs.semVer }}
         shortsha: ${{ steps.gitversion_initial.outputs.ShortSha }}
