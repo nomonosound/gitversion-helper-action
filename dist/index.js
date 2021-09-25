@@ -6351,6 +6351,11 @@ try {
         console.log(`Calculated version to be: ${calculatedSemVer}`);
         core.setOutput("semver", calculatedSemVer);
     }
+    if (calculatedSemVer.includes("-")) {
+        core.setOutput("isrelease", false);
+    } else {
+        core.setOutput("isrelease", true);
+    }
 } catch (error) {
     core.setFailed(error.message);
 }

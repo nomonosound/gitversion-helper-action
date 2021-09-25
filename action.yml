@@ -12,6 +12,8 @@ inputs:
 outputs:
   semver:
     description: 'calculated semver'
+  isrelease:
+    description: boolean, true if current version is a "release" version, false if not
 runs:
   using: 'node12'
   main: 'dist/index.js'
