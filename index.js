@@ -20,6 +20,7 @@ try {
     if (useTagIfExists === true && tagValue != null) {
         console.log(`Using semver from tag: ${tagValue}`);
         core.setOutput("semver", tagValue);
+        calculatedSemVer = tagValue;
     }
     else {
         console.log(`Calculated version to be: ${calculatedSemVer}`);
