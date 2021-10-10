@@ -6339,18 +6339,17 @@ try {
         tagValue = githubRef.replace("refs/tags/", "")
     }
 
-    pythonCompatibleVersion = null;
+    let pythonCompatibleVersion = semVer;
 
 
     calculatedSemVer = semVer;
     if (semVer.includes('-')) {
         calculatedSemVer = semVer.concat('.', ShortSha.toLowerCase());
 
-
         // ugly code for calculating a somewhat pep440-compatible string
         let versionParts = calculatedSemVer.split("-")
         let pythonVersionSuffix = versionParts.slice(1).join(".").substring(0, 6)  // make sure its not too long
-        let pythonCompatibleVersion = versionParts[0] + "." + pythonVersionSuffix
+        pythonCompatibleVersion = versionParts[0] + "." + pythonVersionSuffix
         if (pythonCompatibleVersion.endsWith(".")) { pythonCompatibleVersion = pythonCompatibleVersion.slice(0, -1) }
     }
 
