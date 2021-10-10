@@ -6337,16 +6337,28 @@ try {
     tagValue = null;
     if (githubRef.startsWith("refs/tags")) {
         tagValue = githubRef.replace("refs/tags/", "")
-      }
+    }
+
+    pythonCompatibleVersion = null;
+
 
     calculatedSemVer = semVer;
     if (semVer.includes('-')) {
-        calculatedSemVer = semVer.concat('.', ShortSha);
+        calculatedSemVer = semVer.concat('.', ShortSha.toLowerCase());
+
+
+        // ugly code for calculating a somewhat pep440-compatible string
+        let versionParts = calculatedSemVer.split("-")
+        let pythonVersionSuffix = versionParts.slice(1).join(".").substring(0, 6)  // make sure its not too long
+        let pythonCompatibleVersion = versionParts[0] + "." + pythonVersionSuffix
+        if (pythonCompatibleVersion.endsWith(".")) { pythonCompatibleVersion = pythonCompatibleVersion.slice(0, -1) }
     }
+
     if (useTagIfExists === true && tagValue != null) {
         console.log(`Using semver from tag: ${tagValue}`);
         core.setOutput("semver", tagValue);
         calculatedSemVer = tagValue;
+        pythonCompatibleVersion = tagValue;
     }
     else {
         console.log(`Calculated version to be: ${calculatedSemVer}`);
@@ -6358,6 +6370,7 @@ try {
     } else {
         isRelease = true;
     }
+    core.setOutput("pythonCompatibleVersion", pythonCompatibleVersion);
     console.log(`isrelease: ${isRelease}`);
     core.setOutput("isrelease", isRelease);
 } catch (error) {
