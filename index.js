@@ -7,7 +7,7 @@ try {
     const ShortSha = core.getInput('ShortSha');
     const useTagIfExists = core.getBooleanInput('useTagIfExists');
     const githubRef = core.getInput('githubRef')
-    const PreReleaseNumber = core.getInput('PreReleaseNumber')
+    const preReleaseNumber = core.getInput('preReleaseNumber')
 
     tagValue = null;
     if (githubRef.startsWith("refs/tags")) {
@@ -23,7 +23,7 @@ try {
 
         // ugly code for calculating a somewhat pep440-compatible string
         let versionParts = calculatedSemVer.split("-")
-        pythonCompatibleVersion = versionParts[0] + ".dev" + PreReleaseNumber + Math.floor(Math.random() * 10).toString()
+        pythonCompatibleVersion = versionParts[0] + ".dev" + preReleaseNumber + Math.floor(Math.random() * 10).toString()
     }
 
     if (useTagIfExists === true && tagValue != null) {

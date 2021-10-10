@@ -9,7 +9,7 @@ inputs:
     default: false
   githubRef:
     default: ""
-  PreReleaseNumber:
+  preReleaseNumber:
     default: ""
 outputs:
   semver:
