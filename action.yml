@@ -9,11 +9,15 @@ inputs:
     default: false
   githubRef:
     default: ""
+  PreReleaseNumber:
+    default: ""
 outputs:
   semver:
     description: 'calculated semver'
   isrelease:
     description: boolean, true if current version is a "release" version, false if not
+  pythoncompatibleversion:
+    description: hopefully a python compatible version
 runs:
   using: 'node12'
   main: 'dist/index.js'
