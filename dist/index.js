@@ -6370,7 +6370,7 @@ try {
     } else {
         isRelease = true;
     }
-    core.setOutput("pythonCompatibleVersion", pythonCompatibleVersion);
+    core.setOutput("pythoncompatibleversion", pythonCompatibleVersion);
     console.log(`isrelease: ${isRelease}`);
     core.setOutput("isrelease", isRelease);
 } catch (error) {
