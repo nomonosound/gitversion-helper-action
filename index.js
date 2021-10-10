@@ -44,6 +44,7 @@ try {
     } else {
         isRelease = true;
     }
+    console.log(`pythoncompatibleversion: ${pythonCompatibleVersion}`);
     core.setOutput("pythoncompatibleversion", pythonCompatibleVersion);
     console.log(`isrelease: ${isRelease}`);
     core.setOutput("isrelease", isRelease);
