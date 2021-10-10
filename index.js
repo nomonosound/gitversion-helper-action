@@ -23,7 +23,7 @@ try {
         // ugly code for calculating a somewhat pep440-compatible string
         let versionParts = calculatedSemVer.split("-")
         let pythonVersionSuffix = versionParts.slice(1).join(".").substring(0, 10)  // make sure its not too long
-        pythonCompatibleVersion = versionParts[0] + "." + pythonVersionSuffix
+        pythonCompatibleVersion = versionParts[0] + ".dev" + pythonVersionSuffix
         if (pythonCompatibleVersion.endsWith(".")) { pythonCompatibleVersion = pythonCompatibleVersion.slice(0, -1) }
     }
 
