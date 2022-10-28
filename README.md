@@ -2,7 +2,7 @@
 Helper that can be used to enforce tag-based versioning if a version exists, and otherwise use gitversion's calculated version.
 
 ## Build it:
-`ncc build index.js --license licenses.txt`
+`npm run build`
 
 
 ## Use it in a github action
