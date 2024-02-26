@@ -23,19 +23,19 @@ jobs:
         fetch-depth: 0
 
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.7
+      uses: gittools/actions/gitversion/setup@v0.11.0
       with:
         versionSpec: '5.x'
 
     - name: Determine Version
       id: gitversion_initial
-      uses: gittools/actions/gitversion/execute@v0.9.7
+      uses: gittools/actions/gitversion/execute@v0.11.0
       with:
         useConfigFile: true
 
     - name: Calculate final version
       id: gitversion
-      uses: nomonosound/gitversion-helper-action@2.8.0
+      uses: nomonosound/gitversion-helper-action@2.9.0
       with:
         semver: ${{ steps.gitversion_initial.outputs.semVer }}
         shortsha: ${{ steps.gitversion_initial.outputs.ShortSha }}
