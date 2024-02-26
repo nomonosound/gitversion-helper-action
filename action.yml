@@ -19,5 +19,5 @@ outputs:
   pythoncompatibleversion:
     description: hopefully a python compatible version
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
