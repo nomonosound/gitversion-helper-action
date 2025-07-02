@@ -1,0 +1,9 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "files": {
+    "includes": ["index.js", "!dist/**"]
+  },
+  "formatter": {
+    "useEditorconfig": true
+  }
+}
