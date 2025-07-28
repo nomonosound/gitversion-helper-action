@@ -1,16 +1,24 @@
 name: 'gitversion-helper'
-description: 'adds short sha to prerelease tags'
+description: 'Adds short SHA to prerelease tags'
 inputs:
   semver:
     required: true
+    description: todo
   shortsha:
     required: true
+    description: todo
   useTagIfExists:
-    default: false
-  githubRef:
-    default: ""
+    default: "false"
+    description: Use version from git tag if one exists
   preReleaseNumber:
     default: ""
+    description: todo
+  simplePRversion:
+    default: "false"
+    description: 'Return version in form of pr-{prnumber}-{shortSHA}'
+  githubToken:
+    default: ''
+    description: GitHub token - required if simplePRversion is true
 outputs:
   semver:
     description: 'calculated semver'
